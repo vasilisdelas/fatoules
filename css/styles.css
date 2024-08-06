@@ -489,6 +489,9 @@ section[id]::before {
   margin: 0;
   padding: 0;
 }
+.footer ul li {
+  font-weight: 500;
+}
 
 /* Collapsibles */
 .collapsible {
