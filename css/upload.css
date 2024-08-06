@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Raleway:wght@300;400&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  /* 62.5% of 16px = 10px */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+/* Body and Navbar styling */
+body {
+  font-family: "Jura", sans-serif;
+  background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+  z-index: 1000;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+}
+.navbar a {
+  color: #333;
+  text-decoration: none;
+  /* padding: 8px 16px; */
+  transition: color 0.3s;
+}
+.navbar a:hover {
+  color: #ff3e3e;
+}
+
+/* Centering the form */
+.upload {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 34rem;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.upload h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.2em;
+  color: #d36e70;
+  margin-bottom: 20px;
+}
+
+.upload .form-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.upload .form-group label {
+  /* flex: 1; */
+  min-width: 100px;
+  text-align: left;
+  padding-right: 10px;
+  color: #333;
+}
+
+.upload .form-group input {
+  flex: 2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.upload .custom-file-input {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+}
+
+.upload .custom-file-input input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.upload .custom-file-input label {
+  background-color: #d36e70;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.upload .custom-file-input span {
+  margin-left: 10px;
+  color: #333;
+  font-size: 0.9em;
+}
+
+.upload button {
+  background-color: #d36e70;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.upload button:hover {
+  background-color: #c5595b;
+}
+
+.upload::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: -1;
+}
+
+@media (min-width: 600px) {
+  .upload {
+    max-width: 60rem;
+  }
+  .upload h1 {
+    font-size: 8rem;
+  }
+}

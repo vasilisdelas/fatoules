@@ -15,67 +15,100 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jura:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="#map">Χάρτης</a>
+      <a href="#video">Βίντεο</a>
+      <a href="#submit">Παρουσία</a>
+      <a href="#footer">Επικοινωνία</a>
+      <a href="upload.html">Ανέβασε Φωτό</a>
+      <a href="gallery.html">Φωτογραφίες</a>
+    </nav>
+
     <!-- Section: Hero -->
     <section class="hero-container">
       <h1>We are getting married</h1>
     </section>
+
     <!-- Horizontal line with icon -->
     <div class="hr">
       <img src="./icons/heart.svg" alt="A heart icon" />
     </div>
+
     <!-- People -->
     <section class="people-container">
       <header class="section-header">
-        <h2>Πρωταγωνιστούν...</h2>
+        <h2>Οι εμπλεκόμενοι</h2>
       </header>
       <div class="people">
         <div>
-          <div class="person"></div>
+          <img
+            class="person"
+            src="./images/riri.webp"
+            alt="A photo of the bride"
+          />
           <p>Η Φατούλα</p>
         </div>
         <div>
-          <div class="person"></div>
+          <img
+            class="person"
+            src="./images/theo.webp"
+            alt="A photo of the best man"
+          />
           <p>Ο Κουμπάρος</p>
         </div>
         <div>
-          <div class="person"></div>
+          <img
+            class="person"
+            src="./images/bill.webp"
+            alt="A photo of the groom"
+          />
           <p>Ο Φατούλης</p>
         </div>
       </div>
     </section>
+
     <!-- Cards -->
     <section class="cards">
       <section class="place card">
         <h2>Που;</h2>
-        <p>Μα στο στολίδι των Επτανήσων φυσικά!</p>
-        <img src="./images/kefalonia.jpg" alt="Kefalonia island" />
+        <p>Στο στολίδι των Επτανήσων !</p>
+        <img src="./images/kefalonia.webp" alt="Kefalonia island" />
       </section>
       <section class="date card">
         <h2>Πότε;</h2>
-        <p>Στις <em>24 </em>Αυγούστου, στις <em>19:00 </em>!</p>
-        <img src="./images/kefalonia.jpg" alt="" />
+        <p id="countdown-clock">
+          Στις <em>24 </em>Αυγούστου, στις <em>19:00 </em>!
+        </p>
+        <img src="./images/date.webp" alt="" />
       </section>
       <section class="why card">
         <h2>Γιατί;</h2>
         <p>Δεν είναι προφανές; Για να σφραγίσουμε την αγάπη μας !</p>
-        <img src="./images/money.jpg" alt="A pack of dollars with a lock" />
+        <img src="./images/money.webp" alt="A pack of dollars with a lock" />
       </section>
     </section>
+
     <!-- Horizontal line with icon -->
     <div class="hr">
       <img src="./icons/explore.svg" alt="A heart icon" />
     </div>
+
     <!-- Map -->
-    <section class="map-section">
+    <section id="map" class="map-section">
       <header class="section-header">
         <h2>Κάνε το όπως η Ντόρα!</h2>
       </header>
       <div class="map-container">
-        <img src="./images/map.jpg" alt="A woman holds a map" />
+        <img src="./images/map.webp" alt="A woman holds a map" />
         <div class="map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10556.86570625599!2d20.720988191886384!3d38.126821874287685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135df538653b9a29%3A0x5364fbfe4d178a47!2sKapandriti%20280%2086!5e0!3m2!1sen!2sgr!4v1717158749097!5m2!1sen!2sgr"
@@ -88,59 +121,93 @@
         </div>
       </div>
     </section>
+
     <!-- Horizontal line with icon -->
     <div class="hr">
       <img src="./icons/camera.svg" alt="A heart icon" />
     </div>
+
     <!-- Video -->
-    <section class="video-container">
+    <section id="video" class="video-container">
       <header class="section-header">
         <h2>Ή απλά δες τη διαδρομή</h2>
       </header>
       <div class="video">
         <iframe
-          src="https://www.youtube.com/embed/eVgU2XnBBq8"
-          title="Amazing Toyota GR Yaris GRMN timed on track and 0-60mph"
-          frameborder="0"
+          src="https://www.youtube.com/embed/MLZJsGlq4gY"
+          title="Poros-Kapandriti"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
       </div>
     </section>
+
+    <div class="hr">
+      <img src="./icons/person.svg" alt="A heart icon" />
+    </div>
+
+    <!-- Submit form -->
+    <section id="submit" class="submit">
+      <h1>Would you be there ?</h1>
+      <form
+        action="https://formspree.io/f/mdknznzb"
+        method="POST"
+        id="submitForm"
+      >
+        <div class="form-group">
+          <label for="firstName">Όνομα:</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            maxlength="20"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Επώνυμο:</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            maxlength="20"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <div class="toggle-container">
+            <label for="toggle">Όχι</label>
+            <label class="toggle">
+              <input type="checkbox" id="toggle" name="toggle" />
+              <span class="slider"></span>
+            </label>
+            <label for="toggle">Ναι</label>
+          </div>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
     <!-- Horizontal line with icon -->
     <div class="hr">
       <img src="./icons/umbrella.svg" alt="A heart icon" />
     </div>
-    <!-- Suggestions from locals -->
-    <!-- <section class="visits">
-      <div class="box">
-        <div class="transbox">
-          <p>Lorem ipsum dolor sit.</p>
-        </div>
-      </div>
-      <div class="box">
-        <div class="transbox">
-          <p>Lorem ipsum dolor sit.</p>
-        </div>
-      </div>
-      <div class="box">
-        <div class="transbox">
-          <p>Lorem ipsum dolor sit.</p>
-        </div>
-      </div>
-    </section> -->
-    <!-- Horizontal line with icon -->
-    <!-- <div class="hr">
-      <img src="./icons/sun.svg" alt="A heart icon" />
-    </div> -->
+
     <!-- Footer -->
-    <footer class="footer">
+    <header class="section-header">
+      <h2>Σας ευχαριστούμε</h2>
+    </header>
+    <footer id="footer" class="footer">
       <div class="collapsible">
-        <header class="collapsible__header">
+        <div class="collapsible__header">
           <h4 class="collapsible__heading">Τηλέφωνα</h4>
-          <img src="./icons/arrow_forward.svg" class="collapsible__icon" />
-        </header>
+          <img
+            src="./icons/arrow_forward.svg"
+            class="collapsible__icon"
+            alt="An arrow icon"
+          />
+        </div>
         <div class="collapsible__content">
           <ul>
             <li>Αργυρώ: 6980221414</li>
@@ -149,10 +216,14 @@
         </div>
       </div>
       <div class="collapsible">
-        <header class="collapsible__header">
+        <div class="collapsible__header">
           <h4 class="collapsible__heading">Υποχρεωτική Λίστα Γάμου</h4>
-          <img src="./icons/arrow_forward.svg" class="collapsible__icon" />
-        </header>
+          <img
+            src="./icons/arrow_forward.svg"
+            class="collapsible__icon"
+            alt="An arrow icon"
+          />
+        </div>
         <div class="collapsible__content">
           <ul>
             <li>ALPHA BANK</li>
@@ -160,9 +231,11 @@
           </ul>
         </div>
       </div>
+
       <!-- Copyright -->
       <p class="copyright">&copy;2024 All Rights Reserved.</p>
     </footer>
     <script src="./script.js"></script>
+    <script src="./countdown.js"></script>
   </body>
 </html>
