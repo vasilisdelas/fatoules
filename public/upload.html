@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fatoules</title>
-    <link rel="icon" href="./icons/logo.png" type="image/x-icon" />
+    <link rel="icon" href="./icons/heart.svg" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,9 +19,9 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jura:wght@300..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../css/normalize.css" />
-    <link rel="stylesheet" href="../../css/styles.css" />
-    <link rel="stylesheet" href="../../css/gallery.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/upload.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -34,17 +34,34 @@
       <a href="gallery.html">Φωτογραφίες</a>
     </nav>
 
-    <div id="gallery" class="gallery"></div>
-
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="img01" />
-      <div id="caption"></div>
-    </div>
+    <section class="upload">
+      <h1>Upload Photo</h1>
+      <form id="uploadForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+          <label for="photo">Photo:</label>
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            accept="image/*"
+            multiple
+            required
+          />
+        </div>
+        <button type="submit">Upload</button>
+      </form>
+    </section>
 
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"></script>
-    <script type="module" src="./gallery.js"></script>
+    <script type="module" src="../js/upload.js"></script>
   </body>
 </html>
