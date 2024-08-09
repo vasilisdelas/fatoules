@@ -7,47 +7,63 @@ import {
   getDownloadURL,
 } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAu4F0kqrekcti0Z8bXa95WAHy_4Tga5Vs",
-  authDomain: "fatoules-102e8.firebaseapp.com",
-  projectId: "fatoules-102e8",
-  storageBucket: "fatoules-102e8.appspot.com",
-  messagingSenderId: "219900667587",
-  appId: "1:219900667587:web:027597cb3267799dfbe476",
-  measurementId: "G-N00MPPRHJZ",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const storage = getStorage(app);
-
-// Function to fetch and display images
-async function displayImages() {
-  console.log("Fetching images...");
-  const galleryDiv = document.getElementById("gallery");
-  const storageRef = ref(storage, ""); // Use '' to list all files in root
-
+// Function to fetch Firebase configuration from backend
+async function getFirebaseConfig() {
   try {
-    const res = await listAll(storageRef);
-    console.log("Files listed:", res.items.length);
-    res.items.forEach(async (itemRef) => {
-      try {
-        const url = await getDownloadURL(itemRef);
-        console.log("Image URL fetched:", url);
-        const img = document.createElement("img");
-        img.src = url;
-        img.alt = itemRef.name;
-        img.onclick = function () {
-          openModal(url, itemRef.name);
-        };
-        galleryDiv.appendChild(img);
-      } catch (error) {
-        console.error("Error fetching image URL:", error);
-      }
-    });
+    const configResponse = await fetch("/api/firebase-config");
+    if (!configResponse.ok) {
+      throw new Error("Failed to load Firebase configuration.");
+    }
+    return await configResponse.json();
   } catch (error) {
-    console.error("Error listing files:", error);
+    console.error(error);
+    alert("Failed to load Firebase configuration.");
   }
+}
+
+// Function to initialize Firebase and display images
+async function initializeAndDisplayImages() {
+  const firebaseConfig = await getFirebaseConfig();
+
+  if (!firebaseConfig) {
+    return; // Exit if config could not be loaded
+  }
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const storage = getStorage(app);
+
+  // Function to fetch and display images
+  async function displayImages() {
+    console.log("Fetching images...");
+    const galleryDiv = document.getElementById("gallery");
+    const storageRef = ref(storage, ""); // Use '' to list all files in root
+
+    try {
+      const res = await listAll(storageRef);
+      console.log("Files listed:", res.items.length);
+      res.items.forEach(async (itemRef) => {
+        try {
+          const url = await getDownloadURL(itemRef);
+          console.log("Image URL fetched:", url);
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = itemRef.name;
+          img.onclick = function () {
+            openModal(url, itemRef.name);
+          };
+          galleryDiv.appendChild(img);
+        } catch (error) {
+          console.error("Error fetching image URL:", error);
+        }
+      });
+    } catch (error) {
+      console.error("Error listing files:", error);
+    }
+  }
+
+  // Call function to display images
+  displayImages();
 }
 
 // Function to open modal with image
@@ -69,5 +85,5 @@ span.onclick = function () {
   modal.style.display = "none";
 };
 
-// Call function to display images
-displayImages();
+// Initialize Firebase and display images
+initializeAndDisplayImages();
