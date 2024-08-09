@@ -30,6 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+document.getElementById("menu-toggle").addEventListener("click", function (e) {
+  e.preventDefault();
+  const navbarUl = document.querySelector(".navbar__ul");
+  navbarUl.classList.toggle("open");
+});
+
 const resetForm = () => {
   setTimeout(() => {
     document.getElementById("submitForm").reset();

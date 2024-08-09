@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
       rel="stylesheet"
     />
@@ -19,20 +23,32 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jura:wght@300..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/upload.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/upload.css" />
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar">
-      <a href="index.html#map">Χάρτης</a>
-      <a href="index.html#video">Βίντεο</a>
-      <a href="index.html#form">Παρουσία</a>
-      <a href="index.html#footer">Επικοινωνία</a>
-      <a href="upload.html">Ανέβασε Φωτό</a>
-      <a href="gallery.html">Φωτογραφίες</a>
+      <header class="navbar__header">
+        <a href="./index.html#hero-container"><h1>Fatoules</h1></a>
+        <a href="#" id="menu-toggle"
+          ><span class="material-symbols-outlined menu">menu</span></a
+        >
+      </header>
+      <ul class="navbar__ul">
+        <li><a href="./index.html#map">Χάρτης</a></li>
+        <li><a href="./index.html#video">Βίντεο</a></li>
+        <li><a href="./index.html#submit">Παρουσία</a></li>
+        <li><a href="./index.html#footer">Επικοινωνία</a></li>
+        <li><a href="./upload.html">Ανέβασε Φωτό</a></li>
+        <li><a href="./gallery.html">Φωτογραφίες</a></li>
+      </ul>
     </nav>
+
+    <section class="message">
+      <p>Αυτά που δεν πιάνει ο φωτογράφος...</p>
+    </section>
 
     <section class="upload">
       <h1>Upload Photo</h1>
@@ -62,6 +78,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"></script>
-    <script type="module" src="../js/upload.js"></script>
+    <script type="module" src="./js/upload.js"></script>
+    <script type="module" src="./js/script.js"></script>
   </body>
 </html>

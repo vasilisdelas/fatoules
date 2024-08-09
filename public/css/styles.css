@@ -104,36 +104,110 @@ button.btn-sort {
   margin: 0 auto 3rem;
 }
 
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 2rem;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  justify-items: center;
+  grid-template-columns: 1fr;
   z-index: 1000;
   font-size: 2rem;
 }
 
-@media screen and (max-width: 680px) {
-  .navbar {
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-  }
+.navbar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
 }
-.navbar a {
-  color: #333;
+.navbar__header h1 {
+  font-size: 4rem;
+  font-family: "Dancing Script", cursive;
+  color: black;
+}
+.navbar__header a {
+  color: black;
+  text-decoration: none;
+  margin: 0;
+}
+.navbar__header #menu-toggle {
+  padding-top: 0.7rem;
+}
+
+.navbar__ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar__ul.open {
+  opacity: 1;
+  max-height: 50rem;
+  margin-bottom: 1rem;
+}
+
+.navbar__ul a {
+  color: #282828;
+  font-size: 2rem;
   text-decoration: none;
   transition: color 0.3s;
 }
-.navbar a:hover {
+.navbar__ul a:hover {
   color: #ff3e3e;
+}
+
+@media screen and (min-width: 760px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar__header {
+    display: flex;
+  }
+  #menu-toggle {
+    display: none;
+  }
+
+  .navbar__ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    opacity: 1;
+    max-height: none;
+    height: auto;
+  }
+  .navbar__ul li {
+    padding: 0 0.5rem;
+    margin: 0 auto;
+  }
+  .navbar__ul a {
+    font-size: 1.8rem;
+  }
+  .menu {
+    opacity: 0;
+  }
+}
+@media screen and (min-width: 880px) {
+  .navbar__ul a {
+    font-size: 2rem;
+  }
+  .navbar__ul li {
+    padding: 0 1rem;
+  }
 }
 
 section[id] {
@@ -188,7 +262,7 @@ section[id]::before {
   transform: translate(-50%, -50%);
   color: rgb(255, 255, 255);
   text-align: center;
-  z-index: 9999;
+  z-index: 999;
 }
 @media screen and (min-width: 600px) {
   .hero-container {
@@ -202,7 +276,10 @@ section[id]::before {
 
 /* People */
 .people-container {
-  padding: 6rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  /* padding: 6rem; */
   max-width: 120rem;
   width: 100%;
   margin: 0 auto 4rem;
@@ -213,7 +290,13 @@ section[id]::before {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
   gap: 2rem;
-  margin: 4rem auto;
+  margin: 2rem auto;
+}
+@media screen and (min-width: 800px) {
+  .people {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8rem;
+  }
 }
 .people p {
   margin-top: 0.5rem;
@@ -333,7 +416,7 @@ section[id]::before {
   );
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 4rem;
+  padding: 3rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   width: 100%;
@@ -357,15 +440,17 @@ section[id]::before {
 }
 
 .submit .form-group label {
-  flex: 1;
-  min-width: 100px;
+  display: flex;
+  min-width: 60px;
+  width: 100%;
   text-align: left;
-  padding-right: 10px;
+  /* padding-right: 10px; */
   color: #333;
 }
 
 .submit .form-group input {
-  flex: 2;
+  display: flex;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -377,18 +462,28 @@ section[id]::before {
   display: flex;
   align-items: center;
   margin: 0 auto;
+  align-items: center;
+  justify-content: center;
 }
 .submit .toggle-container label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.submit .toggle {
+.submit label.toggle {
   display: inline-block;
-  width: 60px;
+  min-width: 56px;
+  width: 56px;
   height: 30px;
   position: relative;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   cursor: pointer;
+}
+
+.toggle-container {
+  justify-content: space-between;
 }
 
 .submit .toggle input {
