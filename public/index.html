@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fatoules</title>
-    <link rel="icon" href="../icons/heart.svg" type="image/x-icon" />
+    <link rel="icon" href="./icons/heart.svg" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,8 +23,8 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jura:wght@300..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -52,7 +52,7 @@
 
     <!-- Horizontal line with icon -->
     <div class="hr">
-      <img src="../icons/heart.svg" alt="A heart icon" />
+      <img src="./icons/heart.svg" alt="A heart icon" />
     </div>
 
     <!-- People -->
@@ -64,7 +64,7 @@
         <div>
           <img
             class="person"
-            src="../images/riri.webp"
+            src="./images/riri.webp"
             alt="A photo of the bride"
           />
           <p>Η Φατούλα</p>
@@ -72,7 +72,7 @@
         <div>
           <img
             class="person"
-            src="../images/theo.webp"
+            src="./images/theo.webp"
             alt="A photo of the best man"
           />
           <p>Ο Κουμπάρος</p>
@@ -80,7 +80,7 @@
         <div>
           <img
             class="person"
-            src="../images/bill.webp"
+            src="./images/bill.webp"
             alt="A photo of the groom"
           />
           <p>Ο Φατούλης</p>
@@ -93,25 +93,25 @@
       <section class="place card">
         <h2>Που;</h2>
         <p>Στο στολίδι των Επτανήσων !</p>
-        <img src="../images/kefalonia.webp" alt="Kefalonia island" />
+        <img src="./images/kefalonia.webp" alt="Kefalonia island" />
       </section>
       <section class="date card">
         <h2>Πότε;</h2>
         <p id="countdown-clock">
           Στις <em>24 </em>Αυγούστου, στις <em>19:00 </em>!
         </p>
-        <img src="../images/date.webp" alt="" />
+        <img src="./images/date.webp" alt="" />
       </section>
       <section class="why card">
         <h2>Γιατί;</h2>
         <p>Δεν είναι προφανές; Για να σφραγίσουμε την αγάπη μας !</p>
-        <img src="../images/money.webp" alt="A pack of dollars with a lock" />
+        <img src="./images/money.webp" alt="A pack of dollars with a lock" />
       </section>
     </section>
 
     <!-- Horizontal line with icon -->
     <div class="hr">
-      <img src="../icons/explore.svg" alt="A heart icon" />
+      <img src="./icons/explore.svg" alt="A heart icon" />
     </div>
 
     <!-- Map -->
@@ -120,7 +120,7 @@
         <h2>Κάνε το όπως η Ντόρα!</h2>
       </header>
       <div class="map-container">
-        <img src="../images/map.webp" alt="A woman holds a map" />
+        <img src="./images/map.webp" alt="A woman holds a map" />
         <div class="map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10556.86570625599!2d20.720988191886384!3d38.126821874287685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135df538653b9a29%3A0x5364fbfe4d178a47!2sKapandriti%20280%2086!5e0!3m2!1sen!2sgr!4v1717158749097!5m2!1sen!2sgr"
@@ -136,7 +136,7 @@
 
     <!-- Horizontal line with icon -->
     <div class="hr">
-      <img src="../icons/camera.svg" alt="A heart icon" />
+      <img src="./icons/camera.svg" alt="A heart icon" />
     </div>
 
     <!-- Video -->
@@ -156,11 +156,11 @@
     </section>
 
     <div class="hr">
-      <img src="../icons/person.svg" alt="A heart icon" />
+      <img src="./icons/person.svg" alt="A heart icon" />
     </div>
 
     <!-- Submit form -->
-    <section id="submit" class="submit">
+    <!-- <section id="submit" class="submit">
       <h1>Will you be there ?</h1>
       <form
         action="https://formspree.io/f/mdknznzb"
@@ -199,11 +199,47 @@
         </div>
         <button type="submit">Send</button>
       </form>
+    </section> -->
+    <section id="submit" class="submit">
+      <h1>Will you be there?</h1>
+      <form id="submitForm">
+        <div class="form-group">
+          <label for="firstName">Όνομα:</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            maxlength="20"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Επώνυμο:</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            maxlength="20"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <div class="toggle-container">
+            <label for="toggle">Όχι</label>
+            <label class="toggle">
+              <input type="checkbox" id="toggle" name="toggle" />
+              <span class="slider"></span>
+            </label>
+            <label for="toggle">Ναι</label>
+          </div>
+        </div>
+        <button type="submit">Send</button>
+      </form>
     </section>
 
     <!-- Horizontal line with icon -->
     <div class="hr">
-      <img src="../icons/umbrella.svg" alt="A heart icon" />
+      <img src="./icons/umbrella.svg" alt="A heart icon" />
     </div>
 
     <!-- Footer -->
@@ -215,7 +251,7 @@
         <div class="collapsible__header">
           <h4 class="collapsible__heading">Τηλέφωνα</h4>
           <img
-            src="../icons/arrow_forward.svg"
+            src="./icons/arrow_forward.svg"
             class="collapsible__icon"
             alt="An arrow icon"
           />
@@ -231,7 +267,7 @@
         <div class="collapsible__header">
           <h4 class="collapsible__heading">Υποχρεωτική Λίστα Γάμου</h4>
           <img
-            src="../icons/arrow_forward.svg"
+            src="./icons/arrow_forward.svg"
             class="collapsible__icon"
             alt="An arrow icon"
           />
@@ -248,7 +284,75 @@
       <!-- Copyright -->
       <p class="copyright">&copy;2024 All Rights Reserved.</p>
     </footer>
-    <script src="../js/script.js"></script>
-    <script src="../js/countdown.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAu4F0kqrekcti0Z8bXa95WAHy_4Tga5Vs",
+        authDomain: "fatoules-102e8.firebaseapp.com",
+        projectId: "fatoules-102e8",
+        storageBucket: "fatoules-102e8.appspot.com",
+        messagingSenderId: "219900667587",
+        appId: "1:219900667587:web:027597cb3267799dfbe476",
+        measurementId: "G-N00MPPRHJZ",
+      };
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          // Initialize Firebase directly using the hardcoded config
+          const app = initializeApp(firebaseConfig);
+          const db = getFirestore(app); // Initialize Firestore
+
+          setupSubmitForm(db); // Pass the Firestore `db` instance to the form setup function
+        } catch (error) {
+          console.error("Error initializing Firebase:", error);
+          alert("Failed to initialize Firebase.");
+        }
+      });
+
+      function setupSubmitForm(db) {
+        const form = document.getElementById("submitForm");
+
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault(); // Prevent the default form submission behavior
+
+          const firstName = document.getElementById("firstName").value;
+          const lastName = document.getElementById("lastName").value;
+          const toggle = document.getElementById("toggle").checked;
+
+          // Debugging output
+          console.log(
+            "First Name:",
+            firstName,
+            "Last Name:",
+            lastName,
+            "Toggle:",
+            toggle
+          );
+
+          try {
+            const docRef = await addDoc(collection(db, "responses"), {
+              firstName,
+              lastName,
+              toggle,
+              timestamp: new Date(),
+            });
+            console.log("Document written with ID: ", docRef.id); // Added for debugging
+            alert("Form submitted successfully!");
+            form.reset(); // Optionally reset the form
+          } catch (error) {
+            console.error("Error saving data to Firestore:", error);
+            alert("Error submitting form. Please try again.");
+          }
+        });
+      }
+    </script>
+    <script type="module" src="./js/script.js"></script>
+    <script src="./js/countdown.js"></script>
   </body>
 </html>
