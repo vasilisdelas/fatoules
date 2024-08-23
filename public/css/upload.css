@@ -27,11 +27,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%); */
   text-align: center;
-  margin-top: 18rem;
+  margin-top: 16rem;
   margin-bottom: 2rem;
 }
 .message p {
-  font-family: "Dancing Script", cursive;
   font-optical-sizing: auto;
   font-size: 1.8rem;
   font-weight: 700;
