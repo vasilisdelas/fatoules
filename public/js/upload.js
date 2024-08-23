@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupUploadForm(storage, commonPassword);
   } catch (error) {
     console.error("Error initializing Firebase or fetching config:", error);
-    alert("Failed to load configuration.");
+    console.log("Failed to load configuration.");
   }
 });
 
@@ -60,7 +60,7 @@ function setupUploadForm(storage, commonPassword) {
         let file = files[i];
         if (file.size > 1 * 1024 * 1024) {
           // 1 MB limit
-          alert("File size exceeds 1 MB. Resizing image.");
+          console.log("File size exceeds 1 MB. Resizing image.");
           try {
             file = await resizeImage(file);
           } catch (error) {

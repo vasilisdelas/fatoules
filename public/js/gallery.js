@@ -17,7 +17,7 @@ async function getFirebaseConfig() {
     return await configResponse.json();
   } catch (error) {
     console.error(error);
-    alert("Failed to load Firebase configuration.");
+    console.log("Failed to load Firebase configuration.");
   }
 }
 
