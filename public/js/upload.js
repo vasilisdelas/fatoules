@@ -41,8 +41,6 @@ function setupUploadForm(storage, commonPassword) {
       const fileInput = document.getElementById("photo");
       const files = fileInput.files;
 
-      console.log("Password entered:", password); // Debugging line
-
       if (password !== commonPassword) {
         alert("Incorrect password.");
         return;
