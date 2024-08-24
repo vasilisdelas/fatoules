@@ -1,7 +1,7 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   // Set the target date and time for the countdown (in UTC)
-  const targetDate = new Date("2024-08-24T19:00:00Z");
+  const targetDate = new Date("2024-08-24T16:00:00Z");
 
   function updateCountdown() {
     const now = new Date().getTime();
