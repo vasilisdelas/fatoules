@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const targetId = href.substring(1);
         const targetElement = document.getElementById(targetId);
         const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        const offsetPosition = elementPosition + window.scrollY - offset;
 
         window.scrollTo({
           top: offsetPosition,
@@ -38,7 +38,14 @@ document.getElementById("menu-toggle").addEventListener("click", function (e) {
 
 const resetForm = () => {
   setTimeout(() => {
-    document.getElementById("submitForm").reset();
+    const form =
+      document.getElementById("uploadForm") ||
+      document.getElementById("submitForm");
+    if (form) {
+      form.reset();
+    } else {
+      console.warn("Form with ID 'uploadForm' or 'submitForm' not found.");
+    }
   }, 1000);
 };
 

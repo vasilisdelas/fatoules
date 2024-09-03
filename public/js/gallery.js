@@ -21,6 +21,21 @@ async function getFirebaseConfig() {
   }
 }
 
+// Lazy loading observer - declare this before use
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src; // Assign the actual image URL
+        img.onload = () => img.classList.add("loaded"); // Optional: Add loaded class
+        observer.unobserve(img);
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
 // Function to initialize Firebase and display images
 async function initializeAndDisplayImages() {
   const firebaseConfig = await getFirebaseConfig();
@@ -33,86 +48,44 @@ async function initializeAndDisplayImages() {
   const app = initializeApp(firebaseConfig);
   const storage = getStorage(app);
 
-  // Function to fetch and display images
-  // async function displayImages() {
-  //   console.log("Fetching images...");
-  //   const galleryDiv = document.getElementById("gallery");
-  //   const storageRef = ref(storage, ""); // Use '' to list all files in root
-
-  //   try {
-  //     const res = await listAll(storageRef);
-  //     console.log("Files listed:", res.items.length);
-  //     res.items.forEach(async (itemRef) => {
-  //       try {
-  //         const url = await getDownloadURL(itemRef);
-  //         console.log("Image URL fetched:", url);
-  //         const img = document.createElement("img");
-  //         img.src = url;
-  //         img.alt = itemRef.name;
-  //         img.onclick = function () {
-  //           openModal(url, itemRef.name);
-  //         };
-  //         galleryDiv.appendChild(img);
-  //       } catch (error) {
-  //         console.error("Error fetching image URL:", error);
-  //       }
-  //     });
-  //   } catch (error) {
-  //     console.error("Error listing files:", error);
-  //   }
-  // }
   async function displayImages() {
     const galleryDiv = document.getElementById("gallery");
     const storageRef = ref(storage, ""); // Use '' to list all files in root
 
     try {
       const res = await listAll(storageRef);
+
+      // Display images
       res.items.forEach(async (itemRef, index) => {
-        if (index < 10) {
-          // Load only the first 10 images initially
-          try {
+        try {
+          const img = document.createElement("img");
+          if (index < 20) {
+            // Load only the first 20 images immediately
             const url = await getDownloadURL(itemRef);
-            const img = document.createElement("img");
             img.src = url; // Load immediately for the first few images
             img.alt = itemRef.name;
-            img.onclick = function () {
-              openModal(url, itemRef.name);
-            };
-            galleryDiv.appendChild(img);
-          } catch (error) {
-            console.error("Error fetching image URL:", error);
+          } else {
+            // Lazy load the remaining images
+            img.dataset.src = await getDownloadURL(itemRef); // Store URL in data-src
+            img.alt = itemRef.name;
+            img.classList.add("lazy"); // Optional: Add lazy class for styling
+            observer.observe(img); // Lazy load with IntersectionObserver
           }
-        } else {
-          // Lazy load the remaining images
-          const img = document.createElement("img");
-          img.dataset.src = await getDownloadURL(itemRef); // Store URL in data-src
-          img.alt = itemRef.name;
-          img.classList.add("lazy"); // Optional: Add lazy class for styling
-          observer.observe(img); // Lazy load with IntersectionObserver
+
+          // Add click event listener for modal
+          img.onclick = function () {
+            openModal(img.src || img.dataset.src, itemRef.name);
+          };
+
           galleryDiv.appendChild(img);
+        } catch (error) {
+          console.error("Error fetching image URL:", error);
         }
       });
     } catch (error) {
       console.error("Error listing files:", error);
     }
   }
-
-  // Lazy loading observer
-  const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.src = img.dataset.src; // Assign the actual image URL
-          img.onload = () => img.classList.add("loaded"); // Optional: Add loaded class
-          observer.unobserve(img);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  initializeAndDisplayImages();
 
   // Call function to display images
   displayImages();

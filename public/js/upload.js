@@ -87,7 +87,7 @@ function setupUploadForm(storage, commonPassword) {
 
 function uploadFileToFirebase(file, name, storage) {
   console.log("Uploading file:", file);
-  const storageRef = ref(storage, name + "_" + file.name);
+  const storageRef = ref(storage, name + "_" + file.name); // WebP format will be included in file.name
   return uploadBytes(storageRef, file)
     .then(() => {
       console.log("File uploaded successfully:", file.name);
@@ -126,17 +126,23 @@ async function resizeImage(file) {
         canvas.height = height;
         ctx.drawImage(img, 0, 0, width, height);
 
+        // Convert to WebP format
         canvas.toBlob(
           function (blob) {
             if (blob) {
-              resolve(new File([blob], file.name, { type: file.type }));
+              // Save as WebP with the same file name but different extension
+              resolve(
+                new File([blob], file.name.replace(/\.\w+$/, ".webp"), {
+                  type: "image/webp",
+                })
+              );
             } else {
               reject("Failed to convert canvas to blob.");
             }
           },
-          file.type,
-          0.7
-        ); // Adjust quality for JPEG images
+          "image/webp",
+          0.8 // Adjust quality for WebP images
+        );
       };
       img.src = event.target.result;
     };
