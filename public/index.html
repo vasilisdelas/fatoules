@@ -8,23 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Jura:wght@300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&family=Roboto:wght@100;300;400;500&family=Dancing+Script:wght@400;700&family=Jura:wght@300;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="preload" href="./css/styles.css" as="style" />
   </head>
   <body>
     <!-- Navbar -->
@@ -52,7 +40,8 @@
 
     <!-- Horizontal line with icon -->
     <div class="hr">
-      <img src="./icons/heart.svg" alt="A heart icon" />
+      <span class="bg-icon bg-heart"></span>
+      <div class="bg"></div>
     </div>
 
     <!-- People -->
@@ -66,6 +55,7 @@
             class="person"
             src="./images/riri.webp"
             alt="A photo of the bride"
+            loading="lazy"
           />
           <p>Η Φατούλα</p>
         </div>
@@ -74,6 +64,7 @@
             class="person"
             src="./images/theo.webp"
             alt="A photo of the best man"
+            loading="lazy"
           />
           <p>Ο Κουμπάρος</p>
         </div>
@@ -82,6 +73,7 @@
             class="person"
             src="./images/bill.webp"
             alt="A photo of the groom"
+            loading="lazy"
           />
           <p>Ο Φατούλης</p>
         </div>
@@ -93,25 +85,38 @@
       <section class="place card">
         <h2>Που;</h2>
         <p>Στο στολίδι των Επτανήσων !</p>
-        <img src="./images/kefalonia.webp" alt="Kefalonia island" />
+        <img
+          src="./images/kefalonia.webp"
+          alt="Kefalonia island"
+          loading="lazy"
+        />
       </section>
       <section class="date card">
         <h2>Πότε;</h2>
         <p id="countdown-clock">
           Στις <em>24 </em>Αυγούστου, στις <em>19:00 </em>!
         </p>
-        <img src="./images/date.webp" alt="" />
+        <img
+          src="./images/date.webp"
+          alt="Image of a calendar"
+          loading="lazy"
+        />
       </section>
       <section class="why card">
         <h2>Γιατί;</h2>
         <p>Δεν είναι προφανές; Για να σφραγίσουμε την αγάπη μας !</p>
-        <img src="./images/money.webp" alt="A pack of dollars with a lock" />
+        <img
+          src="./images/money.webp"
+          alt="A pack of dollars with a lock"
+          loading="lazy"
+        />
       </section>
     </section>
 
     <!-- Horizontal line with icon -->
     <div class="hr">
-      <img src="./icons/explore.svg" alt="A heart icon" />
+      <span class="bg-icon bg-explore"></span>
+      <div class="bg"></div>
     </div>
 
     <!-- Map -->
@@ -120,7 +125,7 @@
         <h2>Κάνε το όπως η Ντόρα!</h2>
       </header>
       <div class="map-container">
-        <img src="./images/map.webp" alt="A woman holds a map" />
+        <img loading="lazy" src="./images/map.webp" alt="A woman holds a map" />
         <div class="map">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d6277.029411436827!2d20.72171117611565!3d38.1282231611015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzjCsDA3JzM5LjIiTiAyMMKwNDMnMzYuOCJF!5e0!3m2!1sen!2sgr!4v1724451554850!5m2!1sen!2sgr"
@@ -136,7 +141,8 @@
 
     <!-- Horizontal line with icon -->
     <div class="hr">
-      <img src="./icons/camera.svg" alt="A heart icon" />
+      <span class="bg-icon bg-camera"></span>
+      <div class="bg"></div>
     </div>
 
     <!-- Video -->
@@ -146,6 +152,7 @@
       </header>
       <div class="video">
         <iframe
+          loading="lazy"
           src="https://www.youtube.com/embed/i_tlGC5bUAk"
           title="Poros-Kapandriti"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -155,8 +162,10 @@
       </div>
     </section>
 
+    <!-- Horizontal line with icon -->
     <div class="hr">
-      <img src="./icons/person.svg" alt="A heart icon" />
+      <span class="bg-icon bg-person"></span>
+      <div class="bg"></div>
     </div>
 
     <!-- Submit form -->
@@ -203,7 +212,8 @@
 
     <!-- Horizontal line with icon -->
     <div class="hr">
-      <img src="./icons/umbrella.svg" alt="A heart icon" />
+      <span class="bg-icon bg-umbrella"></span>
+      <div class="bg"></div>
     </div>
 
     <!-- Footer -->
@@ -218,6 +228,7 @@
             src="./icons/arrow_forward.svg"
             class="collapsible__icon"
             alt="An arrow icon"
+            class="arrow_forward"
           />
         </div>
         <div class="collapsible__content">
@@ -234,6 +245,7 @@
             src="./icons/arrow_forward.svg"
             class="collapsible__icon"
             alt="An arrow icon"
+            class="arrow_forward"
           />
         </div>
         <div class="collapsible__content">

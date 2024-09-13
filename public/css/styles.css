@@ -79,14 +79,77 @@ button.btn-sort {
   }
 }
 
+.bg-arrow_forward {
+  width: 24px;
+  height: 24px;
+  background: url("../icons/css_sprites.png") -10px -10px;
+  display: inline-block;
+}
+.bg-camera {
+  width: 24px;
+  height: 24px;
+  background: url("../icons/css_sprites.png") -54px -10px;
+  display: inline-block;
+}
+.bg-bolt {
+  width: 24px;
+  height: 24px;
+  background: url("../icons/css_sprites.png") -10px -54px;
+  display: inline-block;
+}
+.bg-explore {
+  width: 24px;
+  height: 24px;
+  background: url("../icons/css_sprites.png") -54px -54px;
+  display: inline-block;
+}
+.bg-heart {
+  width: 24px;
+  height: 24px;
+  background: url("../icons/css_sprites.png") -98px -10px;
+  display: inline-block;
+}
+.bg-person {
+  width: 24px;
+  height: 24px;
+  background: url("../icons/css_sprites.png") -98px -54px;
+  display: inline-block;
+}
+.bg-sun {
+  width: 24px;
+  height: 24px;
+  background: url("../icons/css_sprites.png") -10px -98px;
+  display: inline-block;
+}
+.bg-star {
+  width: 24px;
+  height: 24px;
+  background: url("../icons/css_sprites.png") -54px -98px;
+  display: inline-block;
+}
+.bg-umbrella {
+  width: 24px;
+  height: 24px;
+  background: url("../icons/css_sprites.png") -98px -98px;
+  display: inline-block;
+}
+
 /* Horizontal lines with icon */
 .hr {
+  display: flex;
   position: relative;
   border-top: 1px solid lightgray;
   margin: 10rem 5rem;
   transform: translate(0, 50%);
 }
-.hr img {
+.bg-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -1rem;
+  z-index: 9999;
+}
+.bg {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -95,7 +158,6 @@ button.btn-sort {
   height: 70px;
   border-radius: 100%;
   background-color: white;
-  padding: 1rem;
 }
 
 .section-header {
